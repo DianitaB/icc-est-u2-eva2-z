@@ -1,5 +1,7 @@
 import java.util.List;
+import java.util.Map;
 
+import controllers.LibroController;
 import models.Book;
 
 public class App {
@@ -31,5 +33,11 @@ public class App {
                 new Book("Ciberseguridad", "Pedro León", 2023),
                 new Book("Blockchain", "Marta Ríos", 2021),
                 new Book("Machine Learning", "Cristina Gómez", 2022));
-    }
+                LibroController controller= new LibroController();
+                Map<Book, Book> resultado = controller.procesarLibros(libros);
+                System.out.println("Libros procesados:");
+                for (Book libro : resultado.keySet()) {
+                    System.out.println(libro.getTitulo() + " - " + libro.getAutor() + " (" + libro.getAnio() + ")");
+                }
+            }
 }
